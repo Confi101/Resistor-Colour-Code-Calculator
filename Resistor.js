@@ -714,7 +714,238 @@ function calculate(){
     console.log(result_display);
     }
 
-    if(fourth_band_value == "±0.5%" || "±0.1%" || "±0.25%" || "±0.05%"){
+    if(fourth_band_value == "±0.05%"){
+
+        let k = 0;
+        for (let i = multiplier; i >= 0.1; i = i/10){
+            E192_jack[k] = i;
+            console.log(E192_jack);
+            k++;
+        }
+
+        function hasCommonElement(E192, E192_jack) {
+            return E192_jack.some(element => E192.includes(element));
+        }
+ 
+
+        if(hasCommonElement(E192, E192_jack)){
+            pratical_result.innerHTML = "Standard Resistor";
+            result.style.backgroundColor = "green";
+        } 
+        
+        else{
+            let m =0;
+            for (let i = 0.1; i < 100000000000; i = i * 10){
+                    E192.forEach(function(E192values){
+                    ALLEjack[m] = E192values*i;
+                    m++;
+                })       
+            }
+            m=0;
+            console.log(ALLEjack, "aljack");
+
+            function findClosest(ALLEjack, multiplier) {
+                let closest = ALLEjack[0];
+                let minDiff = Math.abs(multiplier - closest);
+              
+                for (let i = 1; i < ALLEjack.length; i++) {
+                  let diff = Math.abs(multiplier - ALLEjack[i]);
+                  if (diff < minDiff) {
+                    minDiff = diff;
+                    closest = ALLEjack[i];
+                  }
+                }
+              
+                return closest;
+              }
+              
+              // Example usage:
+
+              const closestValue = findClosest(ALLEjack, multiplier);
+              console.log(`The closest value to ${multiplier} is ${closestValue}.`);
+
+              if(closestValue >= 1000 && closestValue <= 999999){
+                    matchValue = closestValue/1000 + "KΩ" + " " +fourth_band_value;
+                }
+                else if(closestValue >= 1000000 && closestValue <= 999999999){
+                    matchValue = closestValue/1000000 + "MΩ" + " " +fourth_band_value;
+                }
+                else if(closestValue >= 1000000000){
+                    matchValue = closestValue/1000000000 + "GΩ" + " " +fourth_band_value;
+                }
+                else{
+                if(closestValue < 1){
+                    matchValue = closestValue.toFixed(2) + "Ω" + " " +fourth_band_value;
+                }
+                else{
+                    matchValue = closestValue.toFixed(0) + "Ω" + " " +fourth_band_value;
+                }
+            }
+              
+            pratical_result.innerHTML = `Not a Standard Resistor (Closest Match: ${matchValue})`;
+            result.style.backgroundColor = "red";      
+        }
+        ALLEjack = [];
+        // Output: false 
+    
+    console.log(result_display);
+    }
+
+    if(fourth_band_value == "±0.1%"){
+
+        let k = 0;
+        for (let i = multiplier; i >= 0.1; i = i/10){
+            E192_jack[k] = i;
+            console.log(E192_jack);
+            k++;
+        }
+
+        function hasCommonElement(E192, E192_jack) {
+            return E192_jack.some(element => E192.includes(element));
+        }
+ 
+
+        if(hasCommonElement(E192, E192_jack)){
+            pratical_result.innerHTML = "Standard Resistor";
+            result.style.backgroundColor = "green";
+        } 
+        
+        else{
+            let m =0;
+            for (let i = 0.1; i < 100000000000; i = i * 10){
+                    E192.forEach(function(E192values){
+                    ALLEjack[m] = E192values*i;
+                    m++;
+                })       
+            }
+            m=0;
+            console.log(ALLEjack, "aljack");
+
+            function findClosest(ALLEjack, multiplier) {
+                let closest = ALLEjack[0];
+                let minDiff = Math.abs(multiplier - closest);
+              
+                for (let i = 1; i < ALLEjack.length; i++) {
+                  let diff = Math.abs(multiplier - ALLEjack[i]);
+                  if (diff < minDiff) {
+                    minDiff = diff;
+                    closest = ALLEjack[i];
+                  }
+                }
+              
+                return closest;
+              }
+              
+              // Example usage:
+
+              const closestValue = findClosest(ALLEjack, multiplier);
+              console.log(`The closest value to ${multiplier} is ${closestValue}.`);
+
+              if(closestValue >= 1000 && closestValue <= 999999){
+                    matchValue = closestValue/1000 + "KΩ" + " " +fourth_band_value;
+                }
+                else if(closestValue >= 1000000 && closestValue <= 999999999){
+                    matchValue = closestValue/1000000 + "MΩ" + " " +fourth_band_value;
+                }
+                else if(closestValue >= 1000000000){
+                    matchValue = closestValue/1000000000 + "GΩ" + " " +fourth_band_value;
+                }
+                else{
+                if(closestValue < 1){
+                    matchValue = closestValue.toFixed(2) + "Ω" + " " +fourth_band_value;
+                }
+                else{
+                    matchValue = closestValue.toFixed(0) + "Ω" + " " +fourth_band_value;
+                }
+            }
+              
+            pratical_result.innerHTML = `Not a Standard Resistor (Closest Match: ${matchValue})`;
+            result.style.backgroundColor = "red";      
+        }
+        ALLEjack = [];
+        // Output: false 
+    
+    console.log(result_display);
+    }
+
+    if(fourth_band_value == "±0.25%"){
+
+        let k = 0;
+        for (let i = multiplier; i >= 0.1; i = i/10){
+            E192_jack[k] = i;
+            console.log(E192_jack);
+            k++;
+        }
+
+        function hasCommonElement(E192, E192_jack) {
+            return E192_jack.some(element => E192.includes(element));
+        }
+ 
+
+        if(hasCommonElement(E192, E192_jack)){
+            pratical_result.innerHTML = "Standard Resistor";
+            result.style.backgroundColor = "green";
+        } 
+        
+        else{
+            let m =0;
+            for (let i = 0.1; i < 100000000000; i = i * 10){
+                    E192.forEach(function(E192values){
+                    ALLEjack[m] = E192values*i;
+                    m++;
+                })       
+            }
+            m=0;
+            console.log(ALLEjack, "aljack");
+
+            function findClosest(ALLEjack, multiplier) {
+                let closest = ALLEjack[0];
+                let minDiff = Math.abs(multiplier - closest);
+              
+                for (let i = 1; i < ALLEjack.length; i++) {
+                  let diff = Math.abs(multiplier - ALLEjack[i]);
+                  if (diff < minDiff) {
+                    minDiff = diff;
+                    closest = ALLEjack[i];
+                  }
+                }
+              
+                return closest;
+              }
+              
+              // Example usage:
+
+              const closestValue = findClosest(ALLEjack, multiplier);
+              console.log(`The closest value to ${multiplier} is ${closestValue}.`);
+
+              if(closestValue >= 1000 && closestValue <= 999999){
+                    matchValue = closestValue/1000 + "KΩ" + " " +fourth_band_value;
+                }
+                else if(closestValue >= 1000000 && closestValue <= 999999999){
+                    matchValue = closestValue/1000000 + "MΩ" + " " +fourth_band_value;
+                }
+                else if(closestValue >= 1000000000){
+                    matchValue = closestValue/1000000000 + "GΩ" + " " +fourth_band_value;
+                }
+                else{
+                if(closestValue < 1){
+                    matchValue = closestValue.toFixed(2) + "Ω" + " " +fourth_band_value;
+                }
+                else{
+                    matchValue = closestValue.toFixed(0) + "Ω" + " " +fourth_band_value;
+                }
+            }
+              
+            pratical_result.innerHTML = `Not a Standard Resistor (Closest Match: ${matchValue})`;
+            result.style.backgroundColor = "red";      
+        }
+        ALLEjack = [];
+        // Output: false 
+    
+    console.log(result_display);
+    }
+
+    if(fourth_band_value == "±0.5%"){
 
         let k = 0;
         for (let i = multiplier; i >= 0.1; i = i/10){
