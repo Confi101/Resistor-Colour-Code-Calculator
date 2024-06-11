@@ -9,7 +9,7 @@
 
 body{
     background-color: black;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ body{
     overflow: hidden;
     align-self: center;
     box-shadow: inset 0rem 0rem .8rem rgb(241, 239, 239);
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     
     .scrolling-title{
       font-size: 1.5rem;
@@ -50,8 +50,8 @@ body{
 
 .title{
     color: rgb(180, 180, 180);
-    margin-bottom: 2vh;
-    margin-top: 2vh;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
     font-size: calc(2vh + 2vw);;
     font-family: 'BankGothic Lt BT';
     margin-inline: auto;
@@ -61,6 +61,7 @@ body{
 .resistorApp{
     background-color: black;
     height: 80vh;
+    margin-bottom: 1vh;
     width: 60%;
     border-radius: 1rem;
     box-shadow: 0rem 0rem 1vw .5vw gray;
