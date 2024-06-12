@@ -119,6 +119,7 @@ body{
             flex-grow: 6;
             flex-basis: 10%;
             background-color: rgb(240, 240, 176);
+            /* background-color: rgba(64, 141, 185, 0.788); */
             height: 100%;
             border-radius: 1rem;
             box-shadow: 0rem 0rem .8vw .3vw gray;
@@ -139,7 +140,7 @@ body{
             }
 
             .b4th_band{
-                margin-left: 6%;
+                margin-left: 10%;
             }
 
         }
