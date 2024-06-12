@@ -89,6 +89,7 @@ body{
                 font-size: calc(1vh + 1vw);
                 padding: calc(.1vh + .1vw);
                 border-radius: calc(.2vh + .2vw);
+                text-wrap: nowrap;
             }
 
             .boxshadow{
