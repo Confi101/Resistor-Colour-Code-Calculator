@@ -1,3 +1,15 @@
+const selectNumofBand = document.querySelectorAll(".selectNumofBand");
+const fifth_band = document.querySelectorAll(".fifth_band");
+
+const band = document.querySelector(".band");
+
+const b0th_band_color = document.querySelector(".b0th_band_color");
+const b1st_band_color = document.querySelector(".b1st_band_color");
+const resistor_color = document.querySelector(".resistor_color");
+const fourthth_band = document.querySelector(".fourthth_band");
+const fifthth_band = document.querySelector(".fifthth_band");
+
+const b0th_band = document.querySelector(".b0th_band");
 const b1st_band = document.querySelector(".b1st_band");
 const b2nd_band = document.querySelector(".b2nd_band");
 const b3rd_band = document.querySelector(".b3rd_band");
@@ -8,7 +20,7 @@ const pratical_result =document.querySelector(".pratical_result");
 const closestMatch =document.querySelector(".closestMatch");
 const result =document.querySelector(".result");
 
-
+const color_0th = document.querySelectorAll(".color_0th");
 const color_1st = document.querySelectorAll(".color_1st");
 const color_2nd = document.querySelectorAll(".color_2nd");
 const color_3rd = document.querySelectorAll(".color_3rd");
@@ -76,6 +88,10 @@ let E96_jack = [];
 let E192_jack = [];
 let ALLEjack = [];
 
+let stert_4 = 0;
+let fifth_band_showUp = 0;
+
+let zeroth_band_value = 2;
 let first_band_value = 2;
 let second_band_value = 2;
 let third_band_value = 100;
@@ -87,6 +103,123 @@ let result_display;
 let matchValue;
 
 calculate();
+
+if (stert_4 == 0){
+    band.removeChild(b0th_band);
+    resistor_color.removeChild(b0th_band_color);
+    stert_4++;
+}
+selectNumofBand.forEach(function(selectBand){
+    console.log(selectNumofBand);
+    selectBand.addEventListener('click', function(e){
+        console.log(e.target.classList);
+      
+        if(e.target.classList.contains('fourthth_band')){
+            fourthth_band.classList.add("boxshadow");
+            fifthth_band.classList.remove("boxshadow");
+
+            band.removeChild(b0th_band);
+            resistor_color.removeChild(b0th_band_color);
+            fifth_band_showUp = 0;
+            b1st_band_color.children[0].classList.add("empty");
+            b1st_band_color.children[0].classList.remove("black");
+            band.style.backgroundColor = "rgb(240, 240, 176)";
+        
+            calculate();
+        }
+    
+        if(e.target.classList.contains('fifthth_band')){
+            fourthth_band.classList.remove("boxshadow");
+            fifthth_band.classList.add("boxshadow");
+            band.style.backgroundColor = "rgba(64, 141, 185, 0.788)";
+
+            fifthth_band.style.boxShadow = '.2rem .2rem .5rem rgb(235, 233,233);'
+            band.insertBefore(b0th_band, band.children[0]);
+            resistor_color.insertBefore(b0th_band_color, resistor_color.children[0]);
+            fifth_band_showUp = 1;
+            b1st_band_color.children[0].classList.remove("empty");
+            b1st_band_color.children[0].classList.add("black");
+
+            calculate();
+        }
+        console.log(color_0th, "zero");
+    })
+})
+
+color_0th.forEach(zeroth_band => {
+    zeroth_band.addEventListener('click', function(e) {
+        // 'e.target' refers to the element that was clicked
+        console.log('Clicked element:', e.target);
+        // Change the background color of the clicked element
+        if (e.target.classList.contains('black') ){
+            b0th_band.style.backgroundColor = 'black';
+            zeroth_band_value = 0;
+            calculate();
+        }
+
+        if (e.target.classList.contains('brown') ){
+            b0th_band.style.backgroundColor = 'brown';
+            zeroth_band_value = 1;
+            calculate();
+        }
+
+        if (e.target.classList.contains('red') ){
+            b0th_band.style.backgroundColor = 'red';
+            zeroth_band_value = 2;
+            calculate();
+        }
+
+        if (e.target.classList.contains('orange') ){
+            b0th_band.style.backgroundColor = 'orange';
+            zeroth_band_value = 3;
+            calculate();
+        }
+
+        if (e.target.classList.contains('yellow') ){
+            b0th_band.style.backgroundColor = 'yellow';
+            zeroth_band_value = 4;
+            calculate();
+        }
+
+        if (e.target.classList.contains('green') ){
+            b0th_band.style.backgroundColor = 'green';
+            zeroth_band_value = 5;
+            calculate();
+        }
+
+        if (e.target.classList.contains('blue') ){
+            b0th_band.style.backgroundColor = 'blue';
+            zeroth_band_value = 6;
+            calculate();
+        }
+
+        if (e.target.classList.contains('violet') ){
+            b0th_band.style.backgroundColor = 'violet';
+            zeroth_band_value = 7;
+            calculate();
+        }
+
+        if (e.target.classList.contains('gray') ){
+            b0th_band.style.backgroundColor = 'gray';
+            zeroth_band_value = 7;
+            calculate();
+        }
+
+        if (e.target.classList.contains('white') ){
+            b0th_band.style.backgroundColor = 'white';
+            zeroth_band_value = 9;
+            calculate();
+        }
+
+        if (e.target.classList.contains('gold') ){
+            b0th_band.style.backgroundColor = 'gold';
+        }
+
+        if (e.target.classList.contains('silver') ){
+            b0th_band.style.backgroundColor = 'silver';
+        }
+    });
+});
 
 color_1st .forEach(first_band => {
     first_band.addEventListener('click', function(e) {
@@ -383,10 +516,26 @@ color_4th .forEach(fourth_band => {
 function calculate(){
     console.log(first_band_value.toString() + second_band_value.toString(),third_band_value,fourth_band_value);
 
-    combine_12 = first_band_value.toString() + second_band_value.toString();
-    multiplier = parseInt(combine_12) * third_band_value;
-    console.log(multiplier);
+    if (fifth_band_showUp == 1){
+        combine_12 = zeroth_band_value.toString() + first_band_value.toString() + second_band_value.toString();
+        multiplier = parseInt(combine_12) * third_band_value;
+        console.log(multiplier);
+    }
+    else{
+        if(first_band_value == 0){
+            first_band_value = 1;
+            combine_12 = first_band_value.toString() + second_band_value.toString();
+            multiplier = parseInt(combine_12) * third_band_value;
+            console.log(multiplier);
+            b1st_band.style.backgroundColor = "brown";
+        }
+        else{
+            combine_12 = first_band_value.toString() + second_band_value.toString();
+            multiplier = parseInt(combine_12) * third_band_value;
+            console.log(multiplier);
+        }
 
+    }
     if(multiplier >= 1000 && multiplier <= 999999){
         result_display = multiplier/1000 + "KΩ" + " " +fourth_band_value;
     }
